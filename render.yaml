@@ -1,0 +1,45 @@
+services:
+  # Backend API Service
+  - type: web
+    name: eduscribe-backend
+    env: python
+    region: singapore
+    plan: free
+    rootDir: backend
+    buildCommand: "pip install -r requirements-railway.txt"
+    startCommand: "python optimized_main.py"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: PORT
+        value: 8001
+      - key: MONGODB_URL
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: JWT_SECRET_KEY
+        sync: false
+      - key: LLM_MODEL
+        value: llama-3.1-8b-instant
+      - key: WHISPER_MODEL_SIZE
+        value: tiny
+      - key: WHISPER_DEVICE
+        value: cpu
+      - key: WHISPER_COMPUTE_TYPE
+        value: int8
+      - key: AUDIO_SAMPLE_RATE
+        value: 16000
+      - key: CHUNK_DURATION
+        value: 20
+      - key: EMBEDDING_MODEL
+        value: all-MiniLM-L6-v2
+      - key: FAISS_TOP_K
+        value: 3
+      - key: IMPORTANCE_THRESHOLD
+        value: 0.0
+      - key: HISTORY_CHUNKS
+        value: 4
+      - key: ALGORITHM
+        value: HS256
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: 30
