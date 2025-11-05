@@ -1,5 +1,4 @@
-[providers]
-python = "3.10"
+providers = ["python"]
 
 [phases.setup]
 nixPkgs = ["python310", "ffmpeg", "libsndfile"]
