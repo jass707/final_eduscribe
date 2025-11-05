@@ -1,8 +1,10 @@
 [phases.setup]
-nixPkgs = ["python310", "pip", "ffmpeg", "libsndfile"]
+# Ensure pip is available in Nix environment
+nixPkgs = ["python311", "python311Packages.pip"]
 
 [phases.install]
+# Don't try to upgrade pip — just install your requirements
 cmds = ["pip install -r requirements-railway.txt"]
 
 [start]
-cmd = "python optimized_main.py"
+cmd = "python real_main.py"
