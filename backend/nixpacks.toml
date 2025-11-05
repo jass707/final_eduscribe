@@ -11,6 +11,7 @@ nixPkgs = [
 [phases.install]
 cmds = [
     "python -m venv /opt/venv",
+    "export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/root/.nix-profile/lib/pkgconfig",
     ". /opt/venv/bin/activate && pip install -r requirements-railway.txt"
 ]
 
