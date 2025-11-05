@@ -1,14 +1,14 @@
+[providers]
+python = "3.10"
+
 [phases.setup]
-nixPkgs = ["python310", "ffmpeg"]
+nixPkgs = ["python310", "ffmpeg", "libsndfile"]
 
 [phases.install]
 cmds = [
-    "pip install --upgrade pip",
-    "pip install -r requirements-railway.txt"
+    "python -m pip install --upgrade pip",
+    "python -m pip install -r requirements-railway.txt"
 ]
-
-[phases.build]
-cmds = []
 
 [start]
 cmd = "python optimized_main.py"
