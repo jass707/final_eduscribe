@@ -420,6 +420,16 @@ manager = ConnectionManager()
 async def root():
     return {"message": "EduScribe Optimized Backend - Agentic Note Synthesis"}
 
+@app.head("/")
+async def health_check_head():
+    """Health check endpoint for Render"""
+    return {}
+
+@app.get("/health")
+async def health_check():
+    """Health check endpoint"""
+    return {"status": "healthy", "service": "eduscribe-backend"}
+
 
 @app.get("/api/subjects/")
 async def get_subjects():
